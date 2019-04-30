@@ -12,5 +12,6 @@ class ApiRoutes {
         GET("/lists", listHandler::getAllLists)
         POST("/lists", listHandler::createList)
         GET("/lists/{id}", listHandler::getList)
+        PUT("/lists/{id}", listHandler::updateList)
     }
 }

@@ -1,4 +1,4 @@
-package com.bc.todolistbackend
+package com.bc.todolistbackend.domain
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document

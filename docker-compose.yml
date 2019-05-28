@@ -5,6 +5,6 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - .:/code
+      - .:/usr/src/app
   mongodb:
     image: mongo:latest

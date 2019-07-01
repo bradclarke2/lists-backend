@@ -39,4 +39,7 @@ class ListHandler(val listRepository: ListRepository) {
                 .flatMap { listRepository.save(it) }
                 .flatMap { noContent().build() }
     }
+
+    fun deleteList(req: ServerRequest): Mono<ServerResponse>
+            = ok().body(listRepository.deleteById(req.pathVariable("id")))
 }

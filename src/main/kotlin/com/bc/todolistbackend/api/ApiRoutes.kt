@@ -13,5 +13,6 @@ class ApiRoutes {
         POST("/lists", listHandler::createList)
         GET("/lists/{id}", listHandler::getList)
         PUT("/lists/{id}", listHandler::updateList)
+        DELETE("/lists/{id}", listHandler::deleteList)
     }
 }

@@ -1,13 +1,13 @@
-FROM maven:3.6.0-jdk-11
+FROM maven:3.6.1-jdk-11-slim AS builder
 
-COPY src /usr/src/app/src
-COPY pom.xml /usr/src/app
+WORKDIR /app
+COPY pom.xml .
+RUN mvn -e -B dependency:go-offline
 
-WORKDIR /usr/src/app
-RUN mvn clean install
+COPY src ./src
+RUN mvn -e -B package
 
+FROM openjdk:11-jre-slim
+COPY --from=builder /app/target/app.jar /
 EXPOSE 8080
-
-#CMD ["/usr/bin/java", "-jar", "target/to-do-list-backend-0.0.1-SNAPSHOT.jar"]
-CMD mvn clean spring-boot:run -Dspring-boot.run.profiles=dev
-
+CMD ["java", "-jar", "/app.jar"]

@@ -1,6 +1,6 @@
 # lists-backend
 
-Beginning of a shared lists application!
+Beginning of a shared lists application!  🤙
 
 This is primarily a shared lists applications for adding a kind of future wish list of things you may want to see/do/travel to
 
